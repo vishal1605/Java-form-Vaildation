@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Record</title>
+<link rel="stylesheet" th:href="@{/index.css}" />
+<link rel="stylesheet" th:href="@{/bootstrap.css}" />
+</head>
+<body>
+	<div class="container">
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Name</th>
+					<th scope="col">Email</th>
+					<th scope="col">Password</th>
+					<th scope="col">Confirm Password</th>
+					<th scope="col">Gender</th>
+					<th scope="col">Edit</th>
+					<th scope="col">Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="user : ${users}">
+					<th scope="row" th:text="${user.id}"></th>
+					<td th:text="${user.userName}"></td>
+					<td th:text="${user.email}"></td>
+					<td th:text="${user.password}"></td>
+					<td th:text="${user.confirmPassword}"></td>
+					<td th:text="${user.gender}"></td>
+					<td ><a th:href="@{/update-user/{id}(id=${user.id})}">Edit</a></td>
+					<td ><a>Delete</a></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</body>
+</html>
